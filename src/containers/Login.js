@@ -30,7 +30,7 @@ const Login = () => {
           };
 
           const response = await axios.post(
-            `${process.env.REACT_APP_GREEN_RATING_API}/user/login`,
+            `${process.env.REACT_APP_GREEN_RATING_API}user/login`,
             account
           );
           const token = response.data.token;
