@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// AXIOS
+import axios from "axios";
+
+const App = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [value, setValue] = useState("");
+
+  useEffect(() => {
+    const getAPI = async () => {
+      setIsLoading(true);
+      const response = await axios.get(
+        `${process.env.REACT_APP_STEINER_API}/test`
+      );
+      setValue(response.data.message);
+      setIsLoading(false);
+    };
+    getAPI();
+  }, []);
+
+  return <>{!isLoading && value}</>;
+};
 
 export default App;
