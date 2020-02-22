@@ -11,7 +11,7 @@ const App = () => {
     const getAPI = async () => {
       setIsLoading(true);
       const response = await axios.get(
-        `${process.env.REACT_APP_STEINER_API}/test`
+        `${process.env.REACT_APP_BLUE_RATING_API}/test`
       );
       setValue(response.data.message);
       setIsLoading(false);
