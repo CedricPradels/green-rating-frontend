@@ -1,7 +1,12 @@
+// REACT
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // AXIOS
 import axios from "axios";
+
+// COMPONENTS
+import Header from "./components/Header";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +24,16 @@ const App = () => {
     getAPI();
   }, []);
 
-  return <>{!isLoading && value}</>;
+  return (
+    <>
+      <Router>
+        <Header></Header>
+        <Switch>
+          <Route path="/">{!isLoading && value}</Route>
+        </Switch>
+      </Router>
+    </>
+  );
 };
 
 export default App;
