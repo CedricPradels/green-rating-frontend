@@ -2,12 +2,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-// AXIOS
-import axios from "axios";
-
 // CONTAINERS
-import Login from "./containers/Login";
+import Signin from "./containers/Signin";
 import Classes from "./containers/Classes";
+import Signup from "./containers/Signup";
 
 // COMPONENTS
 import Header from "./components/Header";
@@ -21,8 +19,11 @@ const App = () => {
           <Route path="/classes">
             <Classes />
           </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
           <Route path="/">
-            <Login />
+            <Signin />
           </Route>
         </Switch>
       </Router>

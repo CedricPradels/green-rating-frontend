@@ -1,6 +1,6 @@
 // REACT
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 // AXIOS
 import axios from "axios";
@@ -10,7 +10,7 @@ import FormLabel from "../components/FormLabel";
 import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
 
-const Login = () => {
+const Signin = () => {
   // STATES
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,7 +19,7 @@ const Login = () => {
   const history = useHistory();
 
   return (
-    <main className="login">
+    <main className="signin">
       <form
         onSubmit={async event => {
           event.preventDefault();
@@ -30,7 +30,7 @@ const Login = () => {
           };
 
           const response = await axios.post(
-            `${process.env.REACT_APP_GREEN_RATING_API}user/login`,
+            `${process.env.REACT_APP_GREEN_RATING_API}user/signin`,
             account
           );
           const token = response.data.token;
@@ -63,8 +63,11 @@ const Login = () => {
 
         <FormButton type="submit" text="S'enregistrer"></FormButton>
       </form>
+      <div className="Signup">
+        <Link to="/signup">Créer un compte</Link>
+      </div>
     </main>
   );
 };
 
-export default Login;
+export default Signin;
