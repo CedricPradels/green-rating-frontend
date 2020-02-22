@@ -7,7 +7,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <header>
-      <h1>Blue rating</h1>
+      <h1>Green rating</h1>
     </header>
   );
 };
