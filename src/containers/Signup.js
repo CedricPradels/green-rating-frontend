@@ -26,7 +26,6 @@ const Signup = () => {
       <form
         onSubmit={async event => {
           event.preventDefault();
-
           const account = {
             email,
             password,
@@ -35,13 +34,13 @@ const Signup = () => {
           };
 
           if (password === confirm) {
-            console.log(`${process.env.REACT_APP_GREEN_RATING_API}user/signup`);
             const response = await axios.post(
               `${process.env.REACT_APP_GREEN_RATING_API}user/signup`,
               account
             );
+
             if (response.status === 200) {
-              //history.push("/classes");
+              history.push("/");
             } else {
               setEmail("");
               setPassword("");

@@ -10,6 +10,9 @@ import FormLabel from "../components/FormLabel";
 import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
 
+// COOKIE
+import Cookies from "js-cookie";
+
 const Signin = () => {
   // STATES
   const [email, setEmail] = useState("");
