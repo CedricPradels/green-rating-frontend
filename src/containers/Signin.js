@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 
+// CSS
+import "./Signin.css";
+
 // AXIOS
 import axios from "axios";
 
@@ -9,6 +12,8 @@ import axios from "axios";
 import FormLabel from "../components/FormLabel";
 import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
+import FormGroup from "../components/FormGroup";
+import Form from "../components/Form";
 
 // COOKIE
 import Cookies from "js-cookie";
@@ -23,8 +28,9 @@ const Signin = () => {
 
   return (
     <main className="signin">
-      <form
-        onSubmit={async event => {
+      <Form
+        title="Connexion"
+        callback={async event => {
           event.preventDefault();
 
           const account = {
@@ -39,6 +45,7 @@ const Signin = () => {
           const token = response.data.token;
 
           if (token) {
+            Cookies.set("greenRatingToken", token, { expires: 1 });
             history.push("/classes");
           } else {
             setEmail("");
@@ -46,26 +53,29 @@ const Signin = () => {
           }
         }}
       >
-        <FormLabel text="email" id="email"></FormLabel>
-        <FormInput
-          state={email}
-          setState={setEmail}
-          id="email"
-          placeholder="prof@steiner.edu"
-          type="email"
-        ></FormInput>
-
-        <FormLabel text="Mot de passe" id="password"></FormLabel>
-        <FormInput
-          state={password}
-          setState={setPassword}
-          id="password"
-          placeholder="password"
-          type="password"
-        ></FormInput>
+        <FormGroup>
+          <FormLabel text="Email" id="email"></FormLabel>
+          <FormInput
+            state={email}
+            setState={setEmail}
+            id="email"
+            placeholder="prof@steiner.edu"
+            type="email"
+          ></FormInput>
+        </FormGroup>
+        <FormGroup>
+          <FormLabel text="Mot de passe" id="password"></FormLabel>
+          <FormInput
+            state={password}
+            setState={setPassword}
+            id="password"
+            placeholder="password"
+            type="password"
+          ></FormInput>
+        </FormGroup>
 
         <FormButton type="submit" text="S'enregistrer"></FormButton>
-      </form>
+      </Form>
       <div className="Signup">
         <Link to="/signup">Créer un compte</Link>
       </div>

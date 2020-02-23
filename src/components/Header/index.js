@@ -4,10 +4,17 @@ import React from "react";
 // CSS
 import "./Header.css";
 
+// IMAGES
+import logo from "../../images/logo.png";
+
 const Header = () => {
   return (
     <header>
-      <h1>Green rating</h1>
+      <img src={logo} alt="logo" />
+      <h1>
+        <span className="green">Green</span>
+        <span className="rating">Rating</span>
+      </h1>
     </header>
   );
 };

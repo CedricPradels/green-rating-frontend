@@ -5,7 +5,11 @@ import React from "react";
 import "./FormButton.css";
 
 const FormButton = ({ type, text }) => {
-  return <button type={type}>{text}</button>;
+  return (
+    <button className="formButton" type={type}>
+      {text}
+    </button>
+  );
 };
 
 export default FormButton;

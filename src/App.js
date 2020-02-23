@@ -1,6 +1,9 @@
 // REACT
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// CSS
+import "./App.css";
 
 // CONTAINERS
 import Signin from "./containers/Signin";
@@ -9,6 +12,11 @@ import Signup from "./containers/Signup";
 
 // COMPONENTS
 import Header from "./components/Header";
+
+// FONTAWESOME
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faPlus, faLeaf } from "@fortawesome/free-solid-svg-icons";
+library.add(faPlus, faLeaf);
 
 const App = () => {
   return (

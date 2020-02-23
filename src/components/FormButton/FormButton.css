@@ -1,0 +1,14 @@
+.formButton {
+  background-color: green;
+  border-radius: 5px;
+  padding: 0.5rem;
+  color: white;
+  margin-top: 20px;
+}
+
+.formButton:hover {
+  background-color: white;
+  border-color: green;
+  color: green;
+  cursor: pointer;
+}

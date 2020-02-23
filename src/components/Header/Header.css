@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px gray solid;
+  height: 100px;
+  color: green;
+  margin-bottom: 40px;
+}
+
+header img {
+  height: 5rem;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+
+header h1 .green {
+  font-family: "Lobster", sans-serif;
+}
+
+header h1 .rating {
+  font-size: 3rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}

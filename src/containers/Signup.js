@@ -2,6 +2,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
+// SIGNUP
+import "./Signup.css";
+
 // AXIOS
 import axios from "axios";
 
@@ -9,6 +12,8 @@ import axios from "axios";
 import FormLabel from "../components/FormLabel";
 import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
+import FormGroup from "../components/FormGroup";
+import Form from "../components/Form";
 
 const Signup = () => {
   // STATES
@@ -23,8 +28,9 @@ const Signup = () => {
 
   return (
     <main className="signup">
-      <form
-        onSubmit={async event => {
+      <Form
+        title="Créer un compte"
+        callback={async event => {
           event.preventDefault();
           const account = {
             email,
@@ -52,53 +58,63 @@ const Signup = () => {
           }
         }}
       >
-        <FormLabel text="Prénom" id="firstname"></FormLabel>
-        <FormInput
-          state={firstName}
-          setState={setFirstName}
-          id="firsname"
-          placeholder="Clémence"
-          type="text"
-        ></FormInput>
+        <FormGroup>
+          <FormLabel text="Prénom" id="firstname"></FormLabel>
+          <FormInput
+            state={firstName}
+            setState={setFirstName}
+            id="firsname"
+            placeholder="Clémence"
+            type="text"
+          ></FormInput>
+        </FormGroup>
 
-        <FormLabel text="Nom" id="lastname"></FormLabel>
-        <FormInput
-          state={lastName}
-          setState={setLastName}
-          id="lastname"
-          placeholder="Koenig"
-          type="text"
-        ></FormInput>
+        <FormGroup>
+          <FormLabel text="Nom" id="lastname"></FormLabel>
+          <FormInput
+            state={lastName}
+            setState={setLastName}
+            id="lastname"
+            placeholder="Koenig"
+            type="text"
+          ></FormInput>
+        </FormGroup>
 
-        <FormLabel text="Email" id="email"></FormLabel>
-        <FormInput
-          state={email}
-          setState={setEmail}
-          id="email"
-          placeholder="prof@steiner.edu"
-          type="email"
-        ></FormInput>
+        <FormGroup>
+          <FormLabel text="Email" id="email"></FormLabel>
+          <FormInput
+            state={email}
+            setState={setEmail}
+            id="email"
+            placeholder="prof@steiner.edu"
+            type="email"
+          ></FormInput>
+        </FormGroup>
 
-        <FormLabel text="Mot de passe" id="password"></FormLabel>
-        <FormInput
-          state={password}
-          setState={setPassword}
-          id="password"
-          placeholder="password"
-          type="password"
-        ></FormInput>
+        <FormGroup>
+          <FormLabel text="Mot de passe" id="password"></FormLabel>
+          <FormInput
+            state={password}
+            setState={setPassword}
+            id="password"
+            placeholder="password"
+            type="password"
+          ></FormInput>
+        </FormGroup>
 
-        <FormLabel text="Confirmer mot de passe" id="confirm"></FormLabel>
-        <FormInput
-          state={confirm}
-          setState={setConfirm}
-          id="confirm"
-          placeholder="password"
-          type="password"
-        ></FormInput>
+        <FormGroup>
+          <FormLabel text="Confirmer mot de passe" id="confirm"></FormLabel>
+          <FormInput
+            state={confirm}
+            setState={setConfirm}
+            id="confirm"
+            placeholder="password"
+            type="password"
+          ></FormInput>
+        </FormGroup>
 
         <FormButton type="submit" text="Créer un compte"></FormButton>
-      </form>
+      </Form>
     </main>
   );
 };

@@ -5,7 +5,11 @@ import React from "react";
 import "./FormLabel.css";
 
 const FormLabel = ({ text, id }) => {
-  return <label htmlFor={id}>{text}</label>;
+  return (
+    <label className="formLabel" htmlFor={id}>
+      {text}
+    </label>
+  );
 };
 
 export default FormLabel;
