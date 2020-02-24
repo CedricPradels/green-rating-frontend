@@ -8,6 +8,11 @@ header {
   margin-bottom: 40px;
 }
 
+header .redirectHeader {
+  display: flex;
+  align-items: center;
+}
+
 header img {
   height: 5rem;
 }
@@ -22,6 +27,4 @@ header h1 .green {
 
 header h1 .rating {
   font-size: 3rem;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
 }

@@ -42,8 +42,8 @@ const Signin = () => {
             `${process.env.REACT_APP_GREEN_RATING_API}user/signin`,
             account
           );
-          const token = response.data.token;
 
+          const token = response.data.token;
           if (token) {
             Cookies.set("greenRatingToken", token, { expires: 1 });
             history.push("/classes");

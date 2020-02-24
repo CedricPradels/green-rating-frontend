@@ -1,0 +1,8 @@
+.tmp {
+  width: 500px;
+  height: 200px;
+  border: solid black 1px;
+  margin: 50px;
+  font-size: 5rem;
+  cursor: pointer;
+}

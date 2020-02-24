@@ -1,0 +1,11 @@
+.titleClass {
+  height: 100px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px green solid;
+  display: flex;
+}
+
+.titleClass .content {
+  flex: 1;
+}

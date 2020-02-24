@@ -6,3 +6,21 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:link {
+  color: inherit;
+}
+a:visited {
+  color: inherit;
+}
+a:hover {
+  color: inherit;
+}
+a:active {
+  color: inherit;
+}
