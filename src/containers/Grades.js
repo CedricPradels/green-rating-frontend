@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 
 // CSS
-import "./Classes.css";
+import "./Grades.css";
 
 // AXIOS
 import axios from "axios";
@@ -16,22 +16,22 @@ import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
 import FormGroup from "../components/FormGroup";
 import Form from "../components/Form";
-import TileClass from "../components/TileClass";
+import TileGrade from "../components/TileGrade";
 
 // FONTAWESOME
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Classes = () => {
-  const [classes, setClasses] = useState([]);
+const Grades = () => {
+  const [grades, setGrades] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const getUserClasses = async () => {
+    const getUserGrades = async () => {
       const token = Cookies.get("greenRatingToken");
       setIsLoading(true);
 
       const response = await axios.get(
-        `${process.env.REACT_APP_GREEN_RATING_API}user/classes?year=2020`,
+        `${process.env.REACT_APP_GREEN_RATING_API}user/grades?year=2020`,
         {
           headers: {
             Authorization: `Bearer ${token}`
@@ -39,30 +39,30 @@ const Classes = () => {
         }
       );
       console.log(response.data);
-      setClasses(response.data.classes);
+      setGrades(response.data.grades);
       setIsLoading(false);
     };
 
-    getUserClasses();
+    getUserGrades();
   }, []);
 
   return (
-    <main className="classes">
+    <main className="grades">
       <h2>Classes</h2>
       <h3>2020</h3>
       <ul>
-        <TileClass to="/classes/add">
+        <TileClass to="/grades/add">
           <i>
             <FontAwesomeIcon icon="plus" />
           </i>
         </TileClass>
         {!isLoading &&
-          classes.map((currentClass, index) => {
-            return <TileClass key={index} to="/" {...currentClass}></TileClass>;
+          grades.map((grade, index) => {
+            return <TileGrade key={index} to="/" {...grade}></TileGrade>;
           })}
       </ul>
     </main>
   );
 };
 
-export default Classes;
+export default Grades;

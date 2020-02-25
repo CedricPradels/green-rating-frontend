@@ -3,11 +3,11 @@ import React, { Children } from "react";
 import { Link } from "react-router-dom";
 
 // CSS
-import "./TileClass.css";
+import "./TileGrade.css";
 
-const TileClass = ({ to, name, students, children }) => {
+const TileGrade = ({ to, name, students, children }) => {
   return (
-    <li className="titleClass">
+    <li className="titleGrade">
       <Link to={to} className="content">
         {!children ? (
           <div>
@@ -22,4 +22,4 @@ const TileClass = ({ to, name, students, children }) => {
   );
 };
 
-export default TileClass;
+export default TileGrade;

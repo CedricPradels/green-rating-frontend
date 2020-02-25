@@ -5,47 +5,46 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 // COMPONENTS
-import TileClass from "../components/TileClass";
+import TileGrade from "../components/TileGrade";
 
-const ClassesAdd = () => {
+const GradeAdd = () => {
   // STATES
-  const [classes, setClasses] = useState([]);
+  const [grades, setGrades] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const getClasses = async () => {
+    const getGrades = async () => {
       setIsLoading(true);
       const response = await axios.get(
         `${process.env.REACT_APP_GREEN_RATING_API}class/read?year=2020`
       );
 
-      const classes = response.data.classes;
-      if (classes) {
-        setClasses(classes);
+      const grades = response.data.grades;
+      if (grades) {
+        setGrades(grades);
       }
       setIsLoading(false);
     };
-    getClasses();
+    getGrades();
   }, []);
   return (
-    <main className="classesAdd">
+    <main className="gradeAdd">
       <section>
         <h2>2020</h2>
         <ul>
           {!isLoading &&
-            classes.map((currentClass, index) => {
-              console.log(currentClass);
+            grades.map((grade, index) => {
               return (
-                <TileClass
+                <TileGrade
                   key={index}
                   onClick={async () => {
                     const response = await axios.get(
-                      `${process.env.REACT_APP_GREEN_RATING_API}user/classes/add?id=${currentClass._id}`
+                      `${process.env.REACT_APP_GREEN_RATING_API}user/grades/add?id=${grade._id}`
                     );
                   }}
-                  to="/classes"
-                  {...currentClass}
-                ></TileClass>
+                  to="/grades"
+                  {...grade}
+                ></TileGrade>
               );
             })}
         </ul>
@@ -54,4 +53,4 @@ const ClassesAdd = () => {
   );
 };
 
-export default ClassesAdd;
+export default GradeAdd;

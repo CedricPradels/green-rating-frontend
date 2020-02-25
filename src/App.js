@@ -7,9 +7,9 @@ import "./App.css";
 
 // CONTAINERS
 import Signin from "./containers/Signin";
-import Classes from "./containers/Classes";
+import Grades from "./containers/Grades";
 import Signup from "./containers/Signup";
-import ClassesAdd from "./containers/ClassesAdd";
+import GradeAdd from "./containers/GradeAdd";
 
 // COMPONENTS
 import Header from "./components/Header";
@@ -25,11 +25,11 @@ const App = () => {
       <Router>
         <Header></Header>
         <Switch>
-          <Route path="/classes/add">
-            <ClassesAdd />
+          <Route path="/grades/add">
+            <GradeAdd />
           </Route>
-          <Route path="/classes">
-            <Classes />
+          <Route path="/grades">
+            <Grades />
           </Route>
           <Route path="/signup">
             <Signup />

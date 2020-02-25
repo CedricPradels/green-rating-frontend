@@ -46,7 +46,7 @@ const Signin = () => {
           const token = response.data.token;
           if (token) {
             Cookies.set("greenRatingToken", token, { expires: 1 });
-            history.push("/classes");
+            history.push("/grades");
           } else {
             setEmail("");
             setPassword("");
