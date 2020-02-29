@@ -20,8 +20,8 @@ import Cookies from "js-cookie";
 
 const Signin = () => {
   // STATES
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("clemence@koenig.edu");
+  const [password, setPassword] = useState("clem");
 
   // HISTORY
   const history = useHistory();

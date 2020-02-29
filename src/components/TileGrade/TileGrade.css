@@ -1,11 +1,22 @@
-.titleClass {
+.titleGrade {
   height: 100px;
   width: 200px;
   border-radius: 5px;
   border: 1px green solid;
   display: flex;
+  margin: 10px;
+  padding: 10px;
 }
 
-.titleClass .content {
+.titleGrade .content {
   flex: 1;
+}
+
+.titleGrade h2 {
+  text-align: left;
+  font-size: 2rem;
+}
+
+.titleGrade h3 {
+  font-size: 1.5rem;
 }

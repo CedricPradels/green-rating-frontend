@@ -1,0 +1,10 @@
+.gradeAdd {
+  padding: 0 100px;
+}
+
+.gradeAdd h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 10px 0;
+  border-bottom: 1px solid gray;
+}

@@ -1,23 +1,24 @@
 // REACT
-import React, { Children } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 // CSS
 import "./TileGrade.css";
 
-const TileGrade = ({ to, name, students, children }) => {
+const TileGrade = ({ callback, name, students, children }) => {
   return (
     <li className="titleGrade">
-      <Link to={to} className="content">
+      <div onClick={callback} className="content">
         {!children ? (
           <div>
             <h2>{name}</h2>
             <h3>{`${students.length} élèves`}</h3>
+            <button>Ajouter élève</button>
           </div>
         ) : (
           <div>{children}</div>
         )}
-      </Link>
+      </div>
     </li>
   );
 };

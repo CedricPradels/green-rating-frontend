@@ -25,7 +25,7 @@ const App = () => {
       <Router>
         <Header></Header>
         <Switch>
-          <Route path="/grades/add">
+          <Route path="/grades/add/:year">
             <GradeAdd />
           </Route>
           <Route path="/grades">
