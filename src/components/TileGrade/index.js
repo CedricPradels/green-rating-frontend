@@ -13,7 +13,13 @@ const TileGrade = ({ callback, name, students, children }) => {
           <div>
             <h2>{name}</h2>
             <h3>{`${students.length} élèves`}</h3>
-            <button>Ajouter élève</button>
+            <button
+              onClick={event => {
+                event.stopPropagation();
+              }}
+            >
+              Ajouter élève
+            </button>
           </div>
         ) : (
           <div>{children}</div>

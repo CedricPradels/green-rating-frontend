@@ -5,7 +5,22 @@ import React from "react";
 import "./Modale.css";
 
 const Modale = ({ children, setState }) => {
-  return <div className="modale">{children}</div>;
+  return (
+    <div
+      className="modale"
+      onClick={event => {
+        setState(false);
+      }}
+    >
+      <div
+        onClick={event => {
+          event.stopPropagation();
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
 };
 
 export default Modale;

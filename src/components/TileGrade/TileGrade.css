@@ -8,6 +8,12 @@
   padding: 10px;
 }
 
+.titleGrade:hover {
+  cursor: pointer;
+  background-color: green;
+  color: white;
+}
+
 .titleGrade .content {
   flex: 1;
 }

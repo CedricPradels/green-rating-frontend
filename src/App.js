@@ -9,7 +9,7 @@ import "./App.css";
 import Signin from "./containers/Signin";
 import Grades from "./containers/Grades";
 import Signup from "./containers/Signup";
-import GradeAdd from "./containers/GradeAdd";
+import Subjects from "./containers/Subjects";
 
 // COMPONENTS
 import Header from "./components/Header";
@@ -25,8 +25,8 @@ const App = () => {
       <Router>
         <Header></Header>
         <Switch>
-          <Route path="/grades/add/:year">
-            <GradeAdd />
+          <Route path="/grades/:id/subjects">
+            <Subjects />
           </Route>
           <Route path="/grades">
             <Grades />

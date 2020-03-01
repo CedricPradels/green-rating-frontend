@@ -1,5 +1,6 @@
 // REACT
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 // CSS
 import "./Grades.css";
@@ -23,12 +24,16 @@ import FormButton from "../components/FormButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Grades = () => {
+  // STATES
   const [userGrades, setUserGrades] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isModaleVisible, setIsModaleVisible] = useState(false);
   const [gradeName, setGradeName] = useState("");
-  const [gradesOfYear, setGlobalGradesOfYear] = useState(null);
+  const [gradesOfYear, setGlobalGradesOfYear] = useState([]);
   const [token, setToken] = useState(null);
+  const [filterResults, setFilterResults] = useState([]);
+
+  const history = useHistory();
 
   const getGlobalGradesOfYear = async () => {
     const response = await axios.get(
@@ -63,6 +68,20 @@ const Grades = () => {
     getUserGrades();
   }, [gradesOfYear]);
 
+  useEffect(() => {
+    if (gradesOfYear !== null) {
+      const swapTab = [];
+      const regExp = new RegExp(gradeName, "i");
+
+      gradesOfYear.map(grade => {
+        if (regExp.test(grade.name) || gradeName === "") {
+          return swapTab.push(grade);
+        }
+      });
+      setFilterResults(swapTab);
+    }
+  }, [gradeName, gradesOfYear]);
+
   return (
     <main className="grades">
       <h2>Classes</h2>
@@ -75,11 +94,19 @@ const Grades = () => {
       <ul>
         {!isLoading &&
           userGrades.map((grade, index) => {
-            return <TileGrade key={index} to="/" {...grade}></TileGrade>;
+            return (
+              <TileGrade
+                key={index}
+                {...grade}
+                callback={() => {
+                  history.push(`/grades/${grade._id}/subjects`);
+                }}
+              ></TileGrade>
+            );
           })}
       </ul>
       {isModaleVisible && (
-        <Modale>
+        <Modale setState={setIsModaleVisible}>
           <div>
             <Form
               title={"Ajouter une classe à l'année 2020"}
@@ -90,9 +117,8 @@ const Grades = () => {
                   { name: gradeName, year: "2020" },
                   { headers: { Authorization: `Bearer ${token}` } }
                 );
-                console.log("Début lecture de getGloabalGradesOfYear");
+
                 getGlobalGradesOfYear();
-                console.log("Fin lecture de getGloabalGradesOfYear");
               }}
             >
               <FormGroup>
@@ -107,7 +133,7 @@ const Grades = () => {
               </FormGroup>
               <FormButton type="submit" text="Ajouter"></FormButton>
               <ul className="gradeWrapper">
-                {gradesOfYear.map((grade, index) => {
+                {filterResults.map((grade, index) => {
                   return (
                     <TileGrade
                       key={index}
